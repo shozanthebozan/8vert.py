@@ -444,3 +444,19 @@ elif convertchoice=="3":
                amount=input("Enter km/h amount: ")
                print(f"That is {float(amount)/1079252848.8} c.")
 # km/h converting done on 21/6/2026 at 11:26 AM, starting km/s from here. Need to convert to km/h, mph, knots, m/s, ft/s, m (mach number) and c (speed of light)
+     if speedUnit=="km/s":
+          if speedConvert=="km/h":
+               amount=input("Enter km/s amount: ")
+               print(f"That is {float(amount)*3600} km/h.")
+          elif speedConvert=="mph":
+               amount=input('Enter km/s amount: ')
+               print(f"That is {float(amount)*2236.936} mph.")
+          elif speedConvert=="knots":
+               amount=input("Enter km/s amount: ")
+               print(f"That is {float(amount)*1943.844} knots.")
+          elif speedConvert=="m/s":
+               amount=input("Enter km/s amount: ")
+               print(f"That is {float(amount)*1000} m/s.")
+          elif speedConvert=="ft/s":
+               amount=input("Enter km/s amount: ")
+               print(f"That is {float(amount)*3280.84} ft/s.")
