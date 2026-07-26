@@ -1,4 +1,4 @@
-__VERSION__ = "V1.0.0"
+__VERSION__ = "V1.0.1"
 convertchoice=input("Enter 1 for distance/length/height, 2 for weight, 3 for speed, 4 for temp, 5 for volume, 6 for area, 7 for time or 8 for data: ")
 if convertchoice=="1":
     distanceUnit=input("Enter 1st unit in lowercase, it can be mm,cm,m,km,inches,feet,yards or miles: ")
@@ -624,55 +624,288 @@ elif convertchoice=="4":
             print(f"That is {(float(amount)-273.15)*9/5+32} F.")
 # Starting volume conversions
 elif convertchoice=="5":
-    volUnit=input("Enter 1st unit in lowercase (ml,l,m3,tsp,tbsp,fl_oz,cup,pint,quart,gallon): ")
+    volUnit=input("Enter 1st unit in lowercase (ml,l,m³,tsp,tbsp,fl_oz,cup,pint,quart,gallon): ")
     volConvert=input("Enter 2nd unit in lowercase: ")
-    # normalize to liters
-    def to_liters(v, u):
-        if u=="ml":
-            return v/1000
-        if u=="l":
-            return v
-        if u=="m3":
-            return v*1000
-        if u=="tsp":
-            return v*0.00492892
-        if u=="tbsp":
-            return v*0.0147868
-        if u=="fl_oz":
-            return v*0.0295735
-        if u=="cup":
-            return v*0.236588
-        if u=="pint":
-            return v*0.473176
-        if u=="quart":
-            return v*0.946353
-        if u=="gallon":
-            return v*3.78541
-    amount=input("Enter amount: ")
-    liters=to_liters(float(amount), volUnit)
-    # liters to target
-    def from_liters(l, u):
-        if u=="ml":
-            return l*1000
-        if u=="l":
-            return l
-        if u=="m3":
-            return l/1000
-        if u=="tsp":
-            return l/0.00492892
-        if u=="tbsp":
-            return l/0.0147868
-        if u=="fl_oz":
-            return l/0.0295735
-        if u=="cup":
-            return l/0.236588
-        if u=="pint":
-            return l/0.473176
-        if u=="quart":
-            return l/0.946353
-        if u=="gallon":
-            return l/3.78541
-    print(f"That is {from_liters(liters, volConvert)} {volConvert}.")
+    if volUnit=="ml":
+        if volConvert=="l":
+            amount=input("Enter ml amount: ")
+            print(f"That is {float(amount)/1000} l.")
+        if volConvert=="m3":
+            amount=input("Enter ml amount: ")
+            print(f"That is {float(amount)/1000000} m³.")
+        if volConvert=="tsp":
+            amount=input("Enter ml amount: ")
+            print(f"That is {float(amount)/4.92892} tsp.")
+        if volConvert=="tbsp":
+            amount=input("Enter ml amount: ")
+            print(f"That is {float(amount)/14.7868} tbsp.")
+        if volConvert=="fl_oz":
+            amount=input("Enter ml amount: ")
+            print(f"That is {float(amount)/29.5735} fl_oz.")
+        if volConvert=="cup":
+            amount=input("Enter ml amount: ")
+            print(f"That is {float(amount)/236.588} cup.")
+        if volConvert=="pint":
+            amount=input("Enter ml amount: ")
+            print(f"That is {float(amount)/473.176} pint.")
+        if volConvert=="quart":
+            amount=input("Enter ml amount: ")
+            print(f"That is {float(amount)/946.353} quart.")
+        if volConvert=="gallon":
+            amount=input("Enter ml amount: ")
+            print(f"That is {float(amount)/3785.41} gallon.")
+    if volUnit=="l":
+        if volConvert=="ml":
+            amount=input("Enter l amount: ")
+            print(f"That is {float(amount)*1000} ml.")
+        if volConvert=="m3":
+            amount=input("Enter l amount: ")
+            print(f"That is {float(amount)/1000} m³.")
+        if volConvert=="tsp":
+            amount=input("Enter l amount: ")
+            print(f"That is {float(amount)/0.00492892} tsp.")
+        if volConvert=="tbsp":
+            amount=input("Enter l amount: ")
+            print(f"That is {float(amount)/0.0147868} tbsp.")
+        if volConvert=="fl_oz":
+            amount=input("Enter l amount: ")
+            print(f"That is {float(amount)/0.0295735} fl_oz.")
+        if volConvert=="cup":
+            amount=input("Enter l amount: ")
+            print(f"That is {float(amount)/0.236588} cup.")
+        if volConvert=="pint":
+            amount=input("Enter l amount: ")
+            print(f"That is {float(amount)/0.473176} pint.")
+        if volConvert=="quart":
+            amount=input("Enter l amount: ")
+            print(f"That is {float(amount)/0.946353} quart.")
+        if volConvert=="gallon":
+            amount=input("Enter l amount: ")
+            print(f"That is {float(amount)/3.78541} gallon.")
+    if volUnit=="m3":
+        if volConvert=="ml":
+            amount=input("Enter m3 amount: ")
+            print(f"That is {float(amount)*1000000} ml.")
+        if volConvert=="l":
+            amount=input("Enter m3 amount: ")
+            print(f"That is {float(amount)*1000} l.")
+        if volConvert=="tsp":
+            amount=input("Enter m3 amount: ")
+            print(f"That is {float(amount)/0.00000492892} tsp.")
+        if volConvert=="tbsp":
+            amount=input("Enter m3 amount: ")
+            print(f"That is {float(amount)/0.0000147868} tbsp.")
+        if volConvert=="fl_oz":
+            amount=input("Enter m3 amount: ")
+            print(f"That is {float(amount)/0.0000295735} fl_oz.")
+        if volConvert=="cup":
+            amount=input("Enter m3 amount: ")
+            print(f"That is {float(amount)/0.000236588} cup.")
+        if volConvert=="pint":
+            amount=input("Enter m3 amount: ")
+            print(f"That is {float(amount)/0.000473176} pint.")
+        if volConvert=="quart":
+            amount=input("Enter m3 amount: ")
+            print(f"That is {float(amount)/0.000946353} quart.")
+        if volConvert=="gallon":
+            amount=input("Enter m3 amount: ")
+            print(f"That is {float(amount)/0.00378541} gallon.")
+    if volUnit=="tsp":
+        if volConvert=="ml":
+            amount=input("Enter tsp amount: ")
+            print(f"That is {float(amount)*4.92892} ml.")
+        if volConvert=="l":
+            amount=input("Enter tsp amount: ")
+            print(f"That is {float(amount)*0.00492892} l.")
+        if volConvert=="m3":
+            amount=input("Enter tsp amount: ")
+            print(f"That is {float(amount)*0.00000492892} m³.")
+        if volConvert=="tbsp":
+            amount=input("Enter tsp amount: ")
+            print(f"That is {float(amount)/3} tbsp.")
+        if volConvert=="fl_oz":
+            amount=input("Enter tsp amount: ")
+            print(f"That is {float(amount)/6} fl_oz.")
+        if volConvert=="cup":
+            amount=input("Enter tsp amount: ")
+            print(f"That is {float(amount)/48} cup.")
+        if volConvert=="pint":
+            amount=input("Enter tsp amount: ")
+            print(f"That is {float(amount)/96} pint.")
+        if volConvert=="quart":
+            amount=input("Enter tsp amount: ")
+            print(f"That is {float(amount)/192} quart.")
+        if volConvert=="gallon":
+            amount=input("Enter tsp amount: ")
+            print(f"That is {float(amount)/768} gallon.")
+    if volUnit=="tbsp":
+        if volConvert=="ml":
+            amount=input("Enter tbsp amount: ")
+            print(f"That is {float(amount)*14.7868} ml.")
+        if volConvert=="l":
+            amount=input("Enter tbsp amount: ")
+            print(f"That is {float(amount)*0.0147868} l.")
+        if volConvert=="m3":
+            amount=input("Enter tbsp amount: ")
+            print(f"That is {float(amount)*0.0000147868} m³.")
+        if volConvert=="tsp":
+            amount=input("Enter tbsp amount: ")
+            print(f"That is {float(amount)*3} tsp.")
+        if volConvert=="fl_oz":
+            amount=input("Enter tbsp amount: ")
+            print(f"That is {float(amount)/2} fl_oz.")
+        if volConvert=="cup":
+            amount=input("Enter tbsp amount: ")
+            print(f"That is {float(amount)/16} cup.")
+        if volConvert=="pint":
+            amount=input("Enter tbsp amount: ")
+            print(f"That is {float(amount)/32} pint.")
+        if volConvert=="quart":
+            amount=input("Enter tbsp amount: ")
+            print(f"That is {float(amount)/64} quart.")
+        if volConvert=="gallon":
+            amount=input("Enter tbsp amount: ")
+            print(f"That is {float(amount)/256} gallon.")
+    if volUnit=="fl_oz":
+        if volConvert=="ml":
+            amount=input("Enter fl_oz amount: ")
+            print(f"That is {float(amount)*29.5735} ml.")
+        if volConvert=="l":
+            amount=input("Enter fl_oz amount: ")
+            print(f"That is {float(amount)*0.0295735} l.")
+        if volConvert=="m3":
+            amount=input("Enter fl_oz amount: ")
+            print(f"That is {float(amount)*0.0000295735} m³.")
+        if volConvert=="tsp":
+            amount=input("Enter fl_oz amount: ")
+            print(f"That is {float(amount)*6} tsp.")
+        if volConvert=="tbsp":
+            amount=input("Enter fl_oz amount: ")
+            print(f"That is {float(amount)*2} tbsp.")
+        if volConvert=="cup":
+            amount=input("Enter fl_oz amount: ")
+            print(f"That is {float(amount)/8} cup.")
+        if volConvert=="pint":
+            amount=input("Enter fl_oz amount: ")
+            print(f"That is {float(amount)/16} pint.")
+        if volConvert=="quart":
+            amount=input("Enter fl_oz amount: ")
+            print(f"That is {float(amount)/32} quart.")
+        if volConvert=="gallon":
+            amount=input("Enter fl_oz amount: ")
+            print(f"That is {float(amount)/128} gallon.")
+    if volUnit=="cup":
+        if volConvert=="ml":
+            amount=input("Enter cup amount: ")
+            print(f"That is {float(amount)*236.588} ml.")
+        if volConvert=="l":
+            amount=input("Enter cup amount: ")
+            print(f"That is {float(amount)*0.236588} l.")
+        if volConvert=="m3":
+            amount=input("Enter cup amount: ")
+            print(f"That is {float(amount)*0.000236588} m³.")
+        if volConvert=="tsp":
+            amount=input("Enter cup amount: ")
+            print(f"That is {float(amount)*48} tsp.")
+        if volConvert=="tbsp":
+            amount=input("Enter cup amount: ")
+            print(f"That is {float(amount)*16} tbsp.")
+        if volConvert=="fl_oz":
+            amount=input("Enter cup amount: ")
+            print(f"That is {float(amount)*8} fl_oz.")
+        if volConvert=="pint":
+            amount=input("Enter cup amount: ")
+            print(f"That is {float(amount)/2} pint.")
+        if volConvert=="quart":
+            amount=input("Enter cup amount: ")
+            print(f"That is {float(amount)/4} quart.")
+        if volConvert=="gallon":
+            amount=input("Enter cup amount: ")
+            print(f"That is {float(amount)/16} gallon.")
+    if volUnit=="pint":
+        if volConvert=="ml":
+            amount=input("Enter pint amount: ")
+            print(f"That is {float(amount)*473.176} ml.")
+        if volConvert=="l":
+            amount=input("Enter pint amount: ")
+            print(f"That is {float(amount)*0.473176} l.")
+        if volConvert=="m3":
+            amount=input("Enter pint amount: ")
+            print(f"That is {float(amount)*0.000473176} m³.")
+        if volConvert=="tsp":
+            amount=input("Enter pint amount: ")
+            print(f"That is {float(amount)*96} tsp.")
+        if volConvert=="tbsp":
+            amount=input("Enter pint amount: ")
+            print(f"That is {float(amount)*32} tbsp.")
+        if volConvert=="fl_oz":
+            amount=input("Enter pint amount: ")
+            print(f"That is {float(amount)*16} fl_oz.")
+        if volConvert=="cup":
+            amount=input("Enter pint amount: ")
+            print(f"That is {float(amount)*2} cup.")
+        if volConvert=="quart":
+            amount=input("Enter pint amount: ")
+            print(f"That is {float(amount)/2} quart.")
+        if volConvert=="gallon":
+            amount=input("Enter pint amount: ")
+            print(f"That is {float(amount)/8} gallon.")
+    if volUnit=="quart":
+        if volConvert=="ml":
+            amount=input("Enter quart amount: ")
+            print(f"That is {float(amount)*946.353} ml.")
+        if volConvert=="l":
+            amount=input("Enter quart amount: ")
+            print(f"That is {float(amount)*0.946353} l.")
+        if volConvert=="m3":
+            amount=input("Enter quart amount: ")
+            print(f"That is {float(amount)*0.000946353} m³.")
+        if volConvert=="tsp":
+            amount=input("Enter quart amount: ")
+            print(f"That is {float(amount)*192} tsp.")
+        if volConvert=="tbsp":
+            amount=input("Enter quart amount: ")
+            print(f"That is {float(amount)*64} tbsp.")
+        if volConvert=="fl_oz":
+            amount=input("Enter quart amount: ")
+            print(f"That is {float(amount)*32} fl_oz.")
+        if volConvert=="cup":
+            amount=input("Enter quart amount: ")
+            print(f"That is {float(amount)*4} cup.")
+        if volConvert=="pint":
+            amount=input("Enter quart amount: ")
+            print(f"That is {float(amount)*2} pint.")
+        if volConvert=="gallon":
+            amount=input("Enter quart amount: ")
+            print(f"That is {float(amount)/4} gallon.")
+    if volUnit=="gallon":
+        if volConvert=="ml":
+            amount=input("Enter gallon amount: ")
+            print(f"That is {float(amount)*3785.41} ml.")
+        if volConvert=="l":
+            amount=input("Enter gallon amount: ")
+            print(f"That is {float(amount)*3.78541} l.")
+        if volConvert=="m3":
+            amount=input("Enter gallon amount: ")
+            print(f"That is {float(amount)*0.00378541} m³.")
+        if volConvert=="tsp":
+            amount=input("Enter gallon amount: ")
+            print(f"That is {float(amount)*768} tsp.")
+        if volConvert=="tbsp":
+            amount=input("Enter gallon amount: ")
+            print(f"That is {float(amount)*256} tbsp.")
+        if volConvert=="fl_oz":
+            amount=input("Enter gallon amount: ")
+            print(f"That is {float(amount)*128} fl_oz.")
+        if volConvert=="cup":
+            amount=input("Enter gallon amount: ")
+            print(f"That is {float(amount)*16} cup.")
+        if volConvert=="pint":
+            amount=input("Enter gallon amount: ")
+            print(f"That is {float(amount)*8} pint.")
+        if volConvert=="quart":
+            amount=input("Enter gallon amount: ")
+            print(f"That is {float(amount)*4} quart.")
 # Area conversions
 elif convertchoice=="6":
     areaUnit=input("Enter 1st unit (mm²,cm²,m²,km²,in²,ft²,yd²,acre,hectare): ")
@@ -937,37 +1170,104 @@ elif convertchoice=="7":
     print(f"That is {from_seconds(secs, timeConvert)} {timeConvert}.")
 # Data conversions
 elif convertchoice=="8":
-    dataUnit=input("Enter 1st unit (bit,byte,KB,MB,GB,TB): ")
+    dataUnit=input("Enter 1st unit (bit,byte,KiB,MiB,GiB,TiB): ")
     dataConvert=input("Enter 2nd unit: ")
-    def to_bytes(v,u):
-        if u=="bit":
-            return v/8
-        if u=="byte":
-            return v
-        if u=="KB":
-            return v*1024
-        if u=="MB":
-            return v*1024**2
-        if u=="GB":
-            return v*1024**3
-        if u=="TB":
-            return v*1024**4
-    def from_bytes(b,u):
-        if u=="bit":
-            return b*8
-        if u=="byte":
-            return b
-        if u=="KB":
-            return b/1024
-        if u=="MB":
-            return b/1024**2
-        if u=="GB":
-            return b/1024**3
-        if u=="TB":
-            return b/1024**4
-    amount=input("Enter amount: ")
-    b=to_bytes(float(amount), dataUnit)
-    print(f"That is {from_bytes(b, dataConvert)} {dataConvert}.")
+    if dataUnit=="bit":
+        if dataConvert=="byte":
+            amount=input("Enter bit amount: ")
+            print(f"That is {float(amount)/8} byte.")
+        if dataConvert=="KiB":
+            amount=input("Enter bit amount: ")
+            print(f"That is {float(amount)/(8*1024)} KiB.")
+        if dataConvert=="MiB":
+            amount=input("Enter bit amount: ")
+            print(f"That is {float(amount)/(8*1024**2)} MiB.")
+        if dataConvert=="GiB":
+            amount=input("Enter bit amount: ")
+            print(f"That is {float(amount)/(8*1024**3)} GiB.")
+        if dataConvert=="TiB":
+            amount=input("Enter bit amount: ")
+            print(f"That is {float(amount)/(8*1024**4)} TiB.")
+    if dataUnit=="byte":
+        if dataConvert=="bit":
+            amount=input("Enter byte amount: ")
+            print(f"That is {float(amount)*8} bit.")
+        if dataConvert=="KiB":
+            amount=input("Enter byte amount: ")
+            print(f"That is {float(amount)/1024} KiB.")
+        if dataConvert=="MiB":
+            amount=input("Enter byte amount: ")
+            print(f"That is {float(amount)/1024**2} MiB.")
+        if dataConvert=="GiB":
+            amount=input("Enter byte amount: ")
+            print(f"That is {float(amount)/1024**3} GiB.")
+        if dataConvert=="TiB":
+            amount=input("Enter byte amount: ")
+            print(f"That is {float(amount)/1024**4} TiB.")
+    if dataUnit=="KiB":
+        if dataConvert=="bit":
+            amount=input("Enter KiB amount: ")
+            print(f"That is {float(amount)*1024*8} bit.")
+        if dataConvert=="byte":
+            amount=input("Enter KiB amount: ")
+            print(f"That is {float(amount)*1024} byte.")
+        if dataConvert=="MiB":
+            amount=input("Enter KiB amount: ")
+            print(f"That is {float(amount)/1024} MiB.")
+        if dataConvert=="GiB":
+            amount=input("Enter KiB amount: ")
+            print(f"That is {float(amount)/1024**2} GiB.")
+        if dataConvert=="TiB":
+            amount=input("Enter KiB amount: ")
+            print(f"That is {float(amount)/1024**3} TiB.")
+    if dataUnit=="MiB":
+        if dataConvert=="bit":
+            amount=input("Enter MiB amount: ")
+            print(f"That is {float(amount)*1024**2*8} bit.")
+        if dataConvert=="byte":
+            amount=input("Enter MiB amount: ")
+            print(f"That is {float(amount)*1024**2} byte.")
+        if dataConvert=="KiB":
+            amount=input("Enter MiB amount: ")
+            print(f"That is {float(amount)*1024} KiB.")
+        if dataConvert=="GiB":
+            amount=input("Enter MiB amount: ")
+            print(f"That is {float(amount)/1024} GiB.")
+        if dataConvert=="TiB":
+            amount=input("Enter MiB amount: ")
+            print(f"That is {float(amount)/1024**2} TiB.")
+    if dataUnit=="GiB":
+        if dataConvert=="bit":
+            amount=input("Enter GiB amount: ")
+            print(f"That is {float(amount)*1024**3*8} bit.")
+        if dataConvert=="byte":
+            amount=input("Enter GiB amount: ")
+            print(f"That is {float(amount)*1024**3} byte.")
+        if dataConvert=="KiB":
+            amount=input("Enter GiB amount: ")
+            print(f"That is {float(amount)*1024**2} KiB.")
+        if dataConvert=="MiB":
+            amount=input("Enter GiB amount: ")
+            print(f"That is {float(amount)*1024} MiB.")
+        if dataConvert=="TiB":
+            amount=input("Enter GiB amount: ")
+            print(f"That is {float(amount)/1024} TiB.")
+    if dataUnit=="TiB":
+        if dataConvert=="bit":
+            amount=input("Enter TiB amount: ")
+            print(f"That is {float(amount)*1024**4*8} bit.")
+        if dataConvert=="byte":
+            amount=input("Enter TiB amount: ")
+            print(f"That is {float(amount)*1024**4} byte.")
+        if dataConvert=="KiB":
+            amount=input("Enter TiB amount: ")
+            print(f"That is {float(amount)*1024**3} KiB.")
+        if dataConvert=="MiB":
+            amount=input("Enter TiB amount: ")
+            print(f"That is {float(amount)*1024**2} MiB.")
+        if dataConvert=="GiB":
+            amount=input("Enter TiB amount: ")
+            print(f"That is {float(amount)*1024} GiB.")
 else:
     print("Unknown choice")
 
