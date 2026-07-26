@@ -1,6 +1,6 @@
 ## 8vert.py instructions
 **What it is:**
-8vert.py is a unit-converting (eg. mm to cm) program made with Python. It is still not completed yet.
+8vert.py is a unit-converting (eg. mm to cm) program made with Python. I will soon update it to be more efficient with code, then make a tkinter gui, then finally turn this into c. Don't download from releases untill I make c binaries because before v1.0.0 I didn't really know how to use github and git properly.
 
 **How to use it:**
 1. Open up the program in a supported code runner like IDLE or vs code (don't use single-line code runners like Python in cmd).
@@ -19,4 +19,3 @@
 
 Contact me on `kmoruihrdp@hotmail.com` for feedback, suggestions and help/troubleshooting.
 
-**RENEMBER, THIS IS STILL NOT COMPLETED, NOT ALL UNITS ARE DONE YET!!**
