@@ -27,187 +27,21 @@ if convertchoice=="1":
     print(f"That is {convert(float(amount), distanceUnit, distanceConvert, DISTANCE)} {distanceConvert}.")
 # Completed distance/length/height on 18/05/2026, 1:23 PM. Starting weight from here.
 elif convertchoice=="2":
-    weightUnit=input("Enter 1st unit in lowercase, it can be mg, g, kg, tonnes, oz, lb, stones or tons: ") 
-    weightConvert=input("Enter 2nd unit in lowercase, it can be mg, g, kg, tonnes, oz, lb, stones or tons: ") 
-    if weightUnit=="mg":
-        if weightConvert=="g":
-            amount=input("Enter mg amount: ")
-            print(f"That is {float(amount)/1000} g.")
-        elif weightConvert=="kg":
-            amount=input("Enter mg amount: ") 
-            print(f"That is {float(amount)/1000000} kg.")
-        elif weightConvert=="tonnes":
-            amount=input("Enter mg amount: ")
-            print(f"That is {float(amount)/1000000000} tonnes.")
-        elif weightConvert=="oz":
-            amount=input("Enter mg amount: ")
-            print(f"That is {float(amount)/28349.5} oz.")
-        elif weightConvert=="lb":
-            amount=input("Enter mg amount: ")
-            print(f"That is {float(amount)/453592} lb.") 
-        elif weightConvert=="stones":
-            amount=input("Enter mg amount: ")
-            print(f"That is {float(amount)/6350293} stones.")
-        elif weightConvert=="tons":
-            amount=input("Enter mg amount: ")
-            print(f"That is {float(amount)/907185000} tons.")
-    if weightUnit=="g":
-        if weightConvert=="mg":
-            amount=input("Enter g amount: ")
-            print(f"That is {float(amount)*1000} mg.")  
-        elif weightConvert=="kg":
-            amount=input("Enter g amount: ")
-            print(f"That is {float(amount)/1000} kg.")
-        elif weightConvert=="tonnes":  
-            amount=input("Enter g amount: ")   
-            print(f"That is {float(amount)/1000000} tonnes.")   
-        elif weightConvert=="oz":
-            amount=input("Enter g amount: ")
-            print(f"That is {float(amount)/28.3495} oz.")
-        elif weightConvert=="lb":
-            amount=input("Enter g amount: ")
-            print(f"That is {float(amount)/453.592} lb.")
-        elif weightConvert=="stones":
-            amount=input("Enter g amount: ")
-            print(f"That is {float(amount)/6350.293} stones.")
-        elif weightConvert=="tons":
-            amount=input("Enter g amount: ")
-            print(f"That is {float(amount)/907185} tons.")  
-# starting kg here, on 18/05/2026, 4:38 PM. Up to converting kg, do mg, g, tonnes, oz, lb, stones and tons
-    if weightUnit=="kg":
-        if weightConvert=="mg":
-            amount=input("Enter kg amount: ")
-            print(f"That is {float(amount)*1000000} mg.")
-        elif weightConvert=="g":
-            amount=input("Enter kg amount: ")
-            print(f"That is {float(amount)*1000} g.")
-        elif weightConvert=="tonnes":
-            amount=input("Enter kg amount: ")
-            print(f"That is {float(amount)/1000} tonnes.")
-        elif weightConvert=="oz":
-            amount=input("Enter kg amount: ")
-            print(f"That is {float(amount)*35.274} oz.")
-        elif weightConvert=="lb":
-            amount=input("Enter kg amount: ")
-            print(f"That is {float(amount)*2.20462} lb.")
-        elif weightConvert=="stones":
-            amount=input("Enter kg amount: ")
-            print(f"That is {float(amount)*0.157473} stones.")
-        elif weightConvert=="tons":
-            amount=input("Enter kg amount: ")
-            print(f"That is {float(amount)/907.185} tons.")
-    if weightUnit=="tonnes":
-        if weightConvert=="mg":
-            amount=input("Enter tonnes amount: ")
-            print(f"That is {float(amount)*1000000000} mg.")
-        elif weightConvert=="g":
-            amount=input("Enter tonnes amount: ")
-            print(f"That is {float(amount)*1000000} g.")
-        elif weightConvert=="kg":
-            amount=input("Enter tonnes amount: ")
-            print(f"That is {float(amount)*1000} kg.")
-        elif weightConvert=="oz":
-            amount=input("Enter tonnes amount: ")
-            print(f"That is {float(amount)*35274} oz.")
-        elif weightConvert=="lb":
-            amount=input("Enter tonnes amount: ")
-            print(f"That is {float(amount)*2204.62} lb.")
-        elif weightConvert=="stones":
-            amount=input("Enter tonnes amount: ")
-            print(f"That is {float(amount)*157.473} stones.")
-        elif weightConvert=="tons":
-            amount=input("Enter tonnes amount: ")
-            print(f"That is {float(amount)/0.907185} tons.")
-    if weightUnit=="oz":
-        if weightConvert=="mg":
-            amount=input("Enter oz amount: ")
-            print(f"That is {float(amount)*28349.5} mg.")
-        elif weightConvert=="g":
-            amount=input("Enter oz amount: ")
-            print(f"That is {float(amount)*28.3495} g.")
-        elif weightConvert=="kg":
-            amount=input("Enter oz amount: ")
-            print(f"That is {float(amount)/35.274} kg.")
-        elif weightConvert=="tonnes":
-            amount=input("Enter oz amount: ")
-            print(f"That is {float(amount)/35274} tonnes.")
-        elif weightConvert=="lb":
-            amount=input("Enter oz amount: ")
-            print(f"That is {float(amount)/16} lb.")
-        elif weightConvert=="stones":
-            amount=input("Enter oz amount: ")
-            print(f"That is {float(amount)/224} stones.")
-        elif weightConvert=="tons":
-            amount=input("Enter oz amount: ")
-            print(f"That is {float(amount)/32000} tons.")
-    if weightUnit=="lb":
-        if weightConvert=="mg":
-            amount=input("Enter lb amount: ")
-            print(f"That is {float(amount)*453592} mg.")
-        elif weightConvert=="g":
-            amount=input("Enter lb amount: ")
-            print(f"That is {float(amount)*453.592} g.")
-        elif weightConvert=="kg":
-            amount=input("Enter lb amount: ")
-            print(f"That is {float(amount)/2.20462} kg.")
-        elif weightConvert=="tonnes":
-            amount=input("Enter lb amount: ")
-            print(f"That is {float(amount)/2204.62} tonnes.")
-        elif weightConvert=="oz":
-            amount=input("Enter lb amount: ")
-            print(f"That is {float(amount)*16} oz.")
-        elif weightConvert=="stones":
-            amount=input("Enter lb amount: ")
-            print(f"That is {float(amount)/14} stones.")
-        elif weightConvert=="tons":
-            amount=input("Enter lb amount: ")
-            print(f"That is {float(amount)/2000} tons.")
-# up to converting stones, have to convert to mg, g, kg, tonnes, oz, lb,tons
-    if weightUnit=="stones":
-       if weightConvert=="mg":
-          amount=input("Enter stones amount :")
-          print(f"That is {float(amount)*6350293.18} mg.")
-       elif weightConvert=="g":
-          amount=input("Enter stones amount: ")
-          print(f"That is {float(amount)*6350.29318} g.")
-       elif weightConvert=="kg":
-          amount=input("Enter stones amount: ")
-          print(f"That is {float(amount)*6.35029318} kg.")
-       elif weightConvert=="tonnes":
-          amount=input("Enter stones amount: ")
-          print(f"That is {float(amount)*0.00635029} tonnes.")
-       elif weightConvert=="oz":
-          amount=input("Enter stones amount: ")
-          print(f"That is {float(amount)*224} oz.")
-       elif weightConvert=="lb":
-          amount=input("Enter stones amount: ")
-          print(f"That is {float(amount)*14} lb.")
-       elif weightConvert=="tons":
-          amount=input("Enter stones amount: ")
-          print(f"That is {float(amount)*0.007} tons.")
-# up to converting tons, last of weight, have to convert to mg, g, kg, tonnes, oz, lb, stones
-    if weightUnit=="tons":
-        if weightConvert=="mg":
-           amount=input("Enter tons amount: ")
-           print(f"That is {float(amount)*907184740} mg.")
-        elif weightConvert=="g":
-           amount=input("Enter tons amount: ")
-           print(f"That is {float(amount)*907184.74} g.")
-        elif weightConvert=="kg":
-           amount=input("Enter tons amount: ")
-           print(f"That is {float(amount)*907.18474} kg.")
-        elif weightConvert=="tonnes":
-           amount=input("Enter tons amount: ")
-           print(f"That is {float(amount)*0.90718474} tonnes.")
-        elif weightConvert=="oz":
-           amount=input("Enter tons amount: ")
-           print(f"That is {float(amount)*32000} oz.")
-        elif weightConvert=="lb":
-           amount=input("Enter tons amount: ")
-           print(f"That is {float(amount)*2000} lb.")
-        elif weightConvert=="stones":
-           amount=input("Enter tons amount: ")
-           print(f"That is {float(amount)*142.857143} stones.")
+    # Weights in kilograms
+    WEIGHT = {
+        "mg": 0.000001,
+        "g": 0.001,
+        "kg": 1.0,
+        "tonnes": 1000.0,
+        "oz": 0.028349523125,
+        "lb": 0.45359237,
+        "stones": 6.35029318,
+        "tons": 907.18474,
+    }
+    weightUnit=input("Enter 1st unit in lowercase, it can be mg, g, kg, tonnes, oz, lb, stones or tons: ")
+    weightConvert=input("Enter 2nd unit in lowercase, it can be mg, g, kg, tonnes, oz, lb, stones or tons: ")
+    amount=input(f"Enter {weightUnit} amount: ")
+    print(f"That is {convert(float(amount), weightUnit, weightConvert, WEIGHT)} {weightConvert}.")
 # Weight has been completed, on 4:00 6/6/2026 on a saturday. Starting speed from here.
 elif convertchoice=="3":
     speedUnit=input("Enter 1st unit in lowercase, it can be km/h, km/s, mph, knots, m/s, ft/s, m (mach number) or c (speed of light): ")
