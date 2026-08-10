@@ -1184,104 +1184,19 @@ elif convertchoice=="7":
     print(f"That is {from_seconds(secs, timeConvert)} {timeConvert}.")
 # Data conversions
 elif convertchoice=="8":
+    # Sizes in bytes. 1 bit is an eighth of a byte, so it is 0.125.
+    DATA = {
+        "bit": 0.125,
+        "byte": 1.0,
+        "KiB": 1024.0,
+        "MiB": 1024.0 ** 2,
+        "GiB": 1024.0 ** 3,
+        "TiB": 1024.0 ** 4,
+    }
     dataUnit=input("Enter 1st unit (bit,byte,KiB,MiB,GiB,TiB): ")
     dataConvert=input("Enter 2nd unit: ")
-    if dataUnit=="bit":
-        if dataConvert=="byte":
-            amount=input("Enter bit amount: ")
-            print(f"That is {float(amount)/8} byte.")
-        if dataConvert=="KiB":
-            amount=input("Enter bit amount: ")
-            print(f"That is {float(amount)/(8*1024)} KiB.")
-        if dataConvert=="MiB":
-            amount=input("Enter bit amount: ")
-            print(f"That is {float(amount)/(8*1024**2)} MiB.")
-        if dataConvert=="GiB":
-            amount=input("Enter bit amount: ")
-            print(f"That is {float(amount)/(8*1024**3)} GiB.")
-        if dataConvert=="TiB":
-            amount=input("Enter bit amount: ")
-            print(f"That is {float(amount)/(8*1024**4)} TiB.")
-    if dataUnit=="byte":
-        if dataConvert=="bit":
-            amount=input("Enter byte amount: ")
-            print(f"That is {float(amount)*8} bit.")
-        if dataConvert=="KiB":
-            amount=input("Enter byte amount: ")
-            print(f"That is {float(amount)/1024} KiB.")
-        if dataConvert=="MiB":
-            amount=input("Enter byte amount: ")
-            print(f"That is {float(amount)/1024**2} MiB.")
-        if dataConvert=="GiB":
-            amount=input("Enter byte amount: ")
-            print(f"That is {float(amount)/1024**3} GiB.")
-        if dataConvert=="TiB":
-            amount=input("Enter byte amount: ")
-            print(f"That is {float(amount)/1024**4} TiB.")
-    if dataUnit=="KiB":
-        if dataConvert=="bit":
-            amount=input("Enter KiB amount: ")
-            print(f"That is {float(amount)*1024*8} bit.")
-        if dataConvert=="byte":
-            amount=input("Enter KiB amount: ")
-            print(f"That is {float(amount)*1024} byte.")
-        if dataConvert=="MiB":
-            amount=input("Enter KiB amount: ")
-            print(f"That is {float(amount)/1024} MiB.")
-        if dataConvert=="GiB":
-            amount=input("Enter KiB amount: ")
-            print(f"That is {float(amount)/1024**2} GiB.")
-        if dataConvert=="TiB":
-            amount=input("Enter KiB amount: ")
-            print(f"That is {float(amount)/1024**3} TiB.")
-    if dataUnit=="MiB":
-        if dataConvert=="bit":
-            amount=input("Enter MiB amount: ")
-            print(f"That is {float(amount)*1024**2*8} bit.")
-        if dataConvert=="byte":
-            amount=input("Enter MiB amount: ")
-            print(f"That is {float(amount)*1024**2} byte.")
-        if dataConvert=="KiB":
-            amount=input("Enter MiB amount: ")
-            print(f"That is {float(amount)*1024} KiB.")
-        if dataConvert=="GiB":
-            amount=input("Enter MiB amount: ")
-            print(f"That is {float(amount)/1024} GiB.")
-        if dataConvert=="TiB":
-            amount=input("Enter MiB amount: ")
-            print(f"That is {float(amount)/1024**2} TiB.")
-    if dataUnit=="GiB":
-        if dataConvert=="bit":
-            amount=input("Enter GiB amount: ")
-            print(f"That is {float(amount)*1024**3*8} bit.")
-        if dataConvert=="byte":
-            amount=input("Enter GiB amount: ")
-            print(f"That is {float(amount)*1024**3} byte.")
-        if dataConvert=="KiB":
-            amount=input("Enter GiB amount: ")
-            print(f"That is {float(amount)*1024**2} KiB.")
-        if dataConvert=="MiB":
-            amount=input("Enter GiB amount: ")
-            print(f"That is {float(amount)*1024} MiB.")
-        if dataConvert=="TiB":
-            amount=input("Enter GiB amount: ")
-            print(f"That is {float(amount)/1024} TiB.")
-    if dataUnit=="TiB":
-        if dataConvert=="bit":
-            amount=input("Enter TiB amount: ")
-            print(f"That is {float(amount)*1024**4*8} bit.")
-        if dataConvert=="byte":
-            amount=input("Enter TiB amount: ")
-            print(f"That is {float(amount)*1024**4} byte.")
-        if dataConvert=="KiB":
-            amount=input("Enter TiB amount: ")
-            print(f"That is {float(amount)*1024**3} KiB.")
-        if dataConvert=="MiB":
-            amount=input("Enter TiB amount: ")
-            print(f"That is {float(amount)*1024**2} MiB.")
-        if dataConvert=="GiB":
-            amount=input("Enter TiB amount: ")
-            print(f"That is {float(amount)*1024} GiB.")
+    amount=input(f"Enter {dataUnit} amount: ")
+    print(f"That is {convert(float(amount), dataUnit, dataConvert, DATA)} {dataConvert}.")
 else:
     print("Unknown choice")
 
