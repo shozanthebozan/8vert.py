@@ -61,32 +61,29 @@ elif convertchoice=="3":
     print(f"That is {convert(float(amount), speedUnit, speedConvert, SPEED)} {speedConvert}.")
 # Completed speed conversions. Starting temperature.
 elif convertchoice=="4":
+    # Temperature is the one category where a table of factors does NOT work.
+    # Every category above is a pure ratio: 0 of a unit is 0 of every other unit, so a single multiply is enough. 
+    # Temperature has an offset instead - 0 C is  not 0 F - so it needs a real formula.
+    def to_celsius(value, unit):
+        if unit == "C":
+            return value
+        if unit == "F":
+            return (value - 32) * 5 / 9
+        if unit == "K":
+            return value - 273.15
+
+    def from_celsius(celsius, unit):
+        if unit == "C":
+            return celsius
+        if unit == "F":
+            return celsius * 9 / 5 + 32
+        if unit == "K":
+            return celsius + 273.15
+
     tempUnit=input("Enter 1st unit in uppercase (C, F, K): ")
     tempConvert=input("Enter 2nd unit in uppercase (C, F, K): ")
-    if tempUnit==tempConvert:
-        amount=input("Enter amount: ")
-        print(f"That is {float(amount)} {tempConvert}.")
-    if tempUnit=="C":
-        if tempConvert=="F":
-            amount=input("Enter C amount: ")
-            print(f"That is {float(amount)*9/5+32} F.")
-        if tempConvert=="K":
-            amount=input("Enter C amount: ")
-            print(f"That is {float(amount)+273.15} K.")
-    if tempUnit=="F":
-        if tempConvert=="C":
-            amount=input("Enter F amount: ")
-            print(f"That is {(float(amount)-32)*5/9} C.")
-        if tempConvert=="K":
-            amount=input("Enter F amount: ")
-            print(f"That is {(float(amount)-32)*5/9+273.15} K.")
-    if tempUnit=="K":
-        if tempConvert=="C":
-            amount=input("Enter K amount: ")
-            print(f"That is {float(amount)-273.15} C.")
-        if tempConvert=="F":
-            amount=input("Enter K amount: ")
-            print(f"That is {(float(amount)-273.15)*9/5+32} F.")
+    amount=input(f"Enter {tempUnit} amount: ")
+    print(f"That is {from_celsius(to_celsius(float(amount), tempUnit), tempConvert)} {tempConvert}.")
 # Starting volume conversions
 elif convertchoice=="5":
     # Volumes in litres. These are the US liquid measures
