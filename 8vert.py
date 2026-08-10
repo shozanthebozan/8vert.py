@@ -1,4 +1,13 @@
 __VERSION__ = "V1.0.1"
+
+# You already worked this out yourself in the time section, with to_seconds() and from_seconds(). This is the same trick, written with a dict.
+#
+# Pick ONE base unit per category. Then every other unit only needs one number: "how many base units is 1 of me?".
+# Once you have that table, any pair converts in two steps: into the base unit, then out of it.
+def convert(amount, from_unit, to_unit, table):
+    base = amount * table[from_unit]
+    return base / table[to_unit]
+
 convertchoice=input("Enter 1 for distance/length/height, 2 for weight, 3 for speed, 4 for temp, 5 for volume, 6 for area, 7 for time or 8 for data: ")
 if convertchoice=="1":
     distanceUnit=input("Enter 1st unit in lowercase, it can be mm,cm,m,km,inches,feet,yards or miles: ")
@@ -461,7 +470,12 @@ elif convertchoice=="3":
         elif speedConvert=="ft/s":
             amount=input("Enter km/s amount: ")
             print(f"That is {float(amount)*3280.84} ft/s.")
-            print(f"That is {float(amount)*3280.84} ft/s.")
+        elif speedConvert=="m":
+            amount=input("Enter km/s amount: ")
+            print(f"That is M{float(amount)/0.34029}.")
+        elif speedConvert=="c":
+            amount=input("Enter km/s amount: ")
+            print(f"That is {float(amount)/299792.458} c.")
     if speedUnit=="mph":
         if speedConvert=="km/h":
             amount=input("Enter mph amount: ")
