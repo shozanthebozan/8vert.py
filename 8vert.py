@@ -8,149 +8,148 @@ def convert(amount, from_unit, to_unit, table):
     base = amount * table[from_unit]
     return base / table[to_unit]
 
-convertchoice=input("Enter 1 for distance/length/height, 2 for weight, 3 for speed, 4 for temp, 5 for volume, 6 for area, 7 for time or 8 for data: ")
-if convertchoice=="1":
-    # Lengths in metres. The imperial numbers are the exact definitions
-    DISTANCE = {
-        "mm": 0.001,
-        "cm": 0.01,
-        "m": 1.0,
-        "km": 1000.0,
-        "inches": 0.0254,
-        "feet": 0.3048,
-        "yards": 0.9144,
-        "miles": 1609.344,
-    }
-    distanceUnit=input("Enter 1st unit in lowercase, it can be mm,cm,m,km,inches,feet,yards or miles: ")
-    distanceConvert=input("Enter 2nd unit in lowercase, it can be mm,cm,m,km,inches,feet,yards or miles: ")
-    amount=input(f"Enter {distanceUnit} amount: ")
-    print(f"That is {convert(float(amount), distanceUnit, distanceConvert, DISTANCE)} {distanceConvert}.")
-# Completed distance/length/height on 18/05/2026, 1:23 PM. Starting weight from here.
-elif convertchoice=="2":
-    # Weights in kilograms
-    WEIGHT = {
-        "mg": 0.000001,
-        "g": 0.001,
-        "kg": 1.0,
-        "tonnes": 1000.0,
-        "oz": 0.028349523125,
-        "lb": 0.45359237,
-        "stones": 6.35029318,
-        "tons": 907.18474,
-    }
-    weightUnit=input("Enter 1st unit in lowercase, it can be mg, g, kg, tonnes, oz, lb, stones or tons: ")
-    weightConvert=input("Enter 2nd unit in lowercase, it can be mg, g, kg, tonnes, oz, lb, stones or tons: ")
-    amount=input(f"Enter {weightUnit} amount: ")
-    print(f"That is {convert(float(amount), weightUnit, weightConvert, WEIGHT)} {weightConvert}.")
-# Weight has been completed, on 4:00 6/6/2026 on a saturday. Starting speed from here.
-elif convertchoice=="3":
-    # Speeds in metres per second
-    SPEED = {
-        "km/h": 1 / 3.6,
-        "km/s": 1000.0,
-        "mph": 0.44704,
-        "knots": 1852 / 3600,
-        "m/s": 1.0,
-        "ft/s": 0.3048,
-        "m": 343.0,         # mach
-        "c": 299792458.0,   # speed of light
-    }
-    speedUnit=input("Enter 1st unit in lowercase, it can be km/h, km/s, mph, knots, m/s, ft/s, m (mach number) or c (speed of light): ")
-    speedConvert=input("Enter 2nd unit in lowercase, it can be km/h, km/s, mph, knots, m/s, ft/s, m (mach number) or c (speed of light): ")
-    amount=input(f"Enter {speedUnit} amount: ")
-    print(f"That is {convert(float(amount), speedUnit, speedConvert, SPEED)} {speedConvert}.")
-# Completed speed conversions. Starting temperature.
-elif convertchoice=="4":
-    # Temperature is the one category where a table of factors does NOT work.
-    # Every category above is a pure ratio: 0 of a unit is 0 of every other unit, so a single multiply is enough. 
-    # Temperature has an offset instead - 0 C is  not 0 F - so it needs a real formula.
-    def to_celsius(value, unit):
-        if unit == "C":
-            return value
-        if unit == "F":
-            return (value - 32) * 5 / 9
-        if unit == "K":
-            return value - 273.15
 
-    def from_celsius(celsius, unit):
-        if unit == "C":
-            return celsius
-        if unit == "F":
-            return celsius * 9 / 5 + 32
-        if unit == "K":
-            return celsius + 273.15
+# Lengths in metres. The imperial numbers are the exact definitions
+DISTANCE = {
+    "mm": 0.001,
+    "cm": 0.01,
+    "m": 1.0,
+    "km": 1000.0,
+    "inches": 0.0254,
+    "feet": 0.3048,
+    "yards": 0.9144,
+    "miles": 1609.344,
+}
 
-    tempUnit=input("Enter 1st unit in uppercase (C, F, K): ")
-    tempConvert=input("Enter 2nd unit in uppercase (C, F, K): ")
-    amount=input(f"Enter {tempUnit} amount: ")
-    print(f"That is {from_celsius(to_celsius(float(amount), tempUnit), tempConvert)} {tempConvert}.")
-# Starting volume conversions
-elif convertchoice=="5":
-    # Volumes in litres. These are the US liquid measures
-    VOLUME = {
-        "ml": 0.001,
-        "l": 1.0,
-        "m3": 1000.0,
-        "tsp": 0.00492892159375,
-        "tbsp": 0.01478676478125,
-        "fl_oz": 0.0295735295625,
-        "cup": 0.2365882365,
-        "pint": 0.473176473,
-        "quart": 0.946352946,
-        "gallon": 3.785411784,
-    }
-    volUnit=input("Enter 1st unit in lowercase (ml,l,m3,tsp,tbsp,fl_oz,cup,pint,quart,gallon): ")
-    volConvert=input("Enter 2nd unit in lowercase: ")
-    amount=input(f"Enter {volUnit} amount: ")
-    print(f"That is {convert(float(amount), volUnit, volConvert, VOLUME)} {volConvert}.")
-# Area conversions
-elif convertchoice=="6":
-    # Areas in square metres
-    AREA = {
-        "mm2": 0.000001,
-        "cm2": 0.0001,
-        "m2": 1.0,
-        "km2": 1000000.0,
-        "in2": 0.00064516,
-        "ft2": 0.09290304,
-        "yd2": 0.83612736,
-        "acre": 4046.8564224,
-        "hectare": 10000.0,
-    }
-    areaUnit=input("Enter 1st unit (mm2,cm2,m2,km2,in2,ft2,yd2,acre,hectare): ")
-    areaConvert=input("Enter 2nd unit: ")
-    amount=input(f"Enter {areaUnit} amount: ")
-    print(f"That is {convert(float(amount), areaUnit, areaConvert, AREA)} {areaConvert}.")
-# Time conversions
-elif convertchoice=="7":
-    # Times in seconds. A "year" is 365.25 days, the same as your old code used.
-    TIME = {
-        "s": 1.0,
-        "min": 60.0,
-        "h": 3600.0,
-        "day": 86400.0,
-        "week": 604800.0,
-        "year": 31557600.0,
-    }
-    timeUnit=input("Enter 1st unit (s,min,h,day,week,year): ")
-    timeConvert=input("Enter 2nd unit: ")
-    amount=input(f"Enter {timeUnit} amount: ")
-    print(f"That is {convert(float(amount), timeUnit, timeConvert, TIME)} {timeConvert}.")
-# Data conversions
-elif convertchoice=="8":
-    # Sizes in bytes. 1 bit is an eighth of a byte, so it is 0.125.
-    DATA = {
-        "bit": 0.125,
-        "byte": 1.0,
-        "KiB": 1024.0,
-        "MiB": 1024.0 ** 2,
-        "GiB": 1024.0 ** 3,
-        "TiB": 1024.0 ** 4,
-    }
-    dataUnit=input("Enter 1st unit (bit,byte,KiB,MiB,GiB,TiB): ")
-    dataConvert=input("Enter 2nd unit: ")
-    amount=input(f"Enter {dataUnit} amount: ")
-    print(f"That is {convert(float(amount), dataUnit, dataConvert, DATA)} {dataConvert}.")
-else:
+# Weights in kilograms
+WEIGHT = {
+    "mg": 0.000001,
+    "g": 0.001,
+    "kg": 1.0,
+    "tonnes": 1000.0,
+    "oz": 0.028349523125,
+    "lb": 0.45359237,
+    "stones": 6.35029318,
+    "tons": 907.18474,
+}
+
+# Speeds in metres per second
+SPEED = {
+    "km/h": 1 / 3.6,
+    "km/s": 1000.0,
+    "mph": 0.44704,
+    "knots": 1852 / 3600,
+    "m/s": 1.0,
+    "ft/s": 0.3048,
+    "m": 343.0,         # mach
+    "c": 299792458.0,   # speed of light
+}
+
+# Volumes in litres. These are the US liquid measures
+VOLUME = {
+    "ml": 0.001,
+    "l": 1.0,
+    "m3": 1000.0,
+    "tsp": 0.00492892159375,
+    "tbsp": 0.01478676478125,
+    "fl_oz": 0.0295735295625,
+    "cup": 0.2365882365,
+    "pint": 0.473176473,
+    "quart": 0.946352946,
+    "gallon": 3.785411784,
+}
+
+# Areas in square metres
+AREA = {
+    "mm2": 0.000001,
+    "cm2": 0.0001,
+    "m2": 1.0,
+    "km2": 1000000.0,
+    "in2": 0.00064516,
+    "ft2": 0.09290304,
+    "yd2": 0.83612736,
+    "acre": 4046.8564224,
+    "hectare": 10000.0,
+}
+
+# Times in seconds. A "year" is 365.25 days, the same as your old code used.
+TIME = {
+    "s": 1.0,
+    "min": 60.0,
+    "h": 3600.0,
+    "day": 86400.0,
+    "week": 604800.0,
+    "year": 31557600.0,
+}
+
+# Sizes in bytes. 1 bit is an eighth of a byte, so it is 0.125.
+DATA = {
+    "bit": 0.125,
+    "byte": 1.0,
+    "KiB": 1024.0,
+    "MiB": 1024.0 ** 2,
+    "GiB": 1024.0 ** 3,
+    "TiB": 1024.0 ** 4,
+}
+
+# Temperature is the one category where a table of factors does NOT work.
+# Every category above is a pure ratio: 0 of a unit is 0 of every other unit, so a single multiply is enough.
+# Temperature has an offset instead - 0 C is not 0 F - so it needs a real formula.
+TEMPERATURE = ("C", "F", "K")
+
+
+def to_celsius(value, unit):
+    if unit == "C":
+        return value
+    if unit == "F":
+        return (value - 32) * 5 / 9
+    if unit == "K":
+        return value - 273.15
+
+
+def from_celsius(celsius, unit):
+    if unit == "C":
+        return celsius
+    if unit == "F":
+        return celsius * 9 / 5 + 32
+    if unit == "K":
+        return celsius + 273.15
+
+
+# What each menu number means: 
+# the name to show, the units, and a hint for the ones whose names are not obvious.
+# For 7 of them the units are the conversion table. Temperature only lists its names, because it uses the formulas above instead.
+CATEGORIES = {
+    1: ("distance/length/height", DISTANCE, ""),
+    2: ("weight", WEIGHT, ""),
+    3: ("speed", SPEED, "m is the mach number, c is the speed of light"),
+    4: ("temp", TEMPERATURE, "uppercase"),
+    5: ("volume", VOLUME, ""),
+    6: ("area", AREA, "the 2 means squared, so mm2 is a square millimetre"),
+    7: ("time", TIME, ""),
+    8: ("data", DATA, ""),
+}
+
+convertchoice=int(input("Enter 1 for distance/length/height, 2 for weight, 3 for speed, 4 for temp, 5 for volume, 6 for area, 7 for time or 8 for data: "))
+if convertchoice not in CATEGORIES:
     print("Unknown choice")
+else:
+    name, units, hint = CATEGORIES[convertchoice]
 
+    # The list of units comes straight from the table, so the prompt can never get out of step with what the code accepts.
+    choices = ", ".join(units)
+    if hint:
+        choices = f"{choices} - {hint}"
+    fromUnit=input(f"Enter 1st unit for {name}, it can be {choices}: ")
+    toUnit=input("Enter 2nd unit: ")
+
+    # The old code just fell through and printed nothing when you typed a unit it did not know, which made it look broken.
+    if fromUnit not in units or toUnit not in units:
+        print(f"Sorry, that is not a {name} unit. It can be: {', '.join(units)}")
+    else:
+        amount=input(f"Enter {fromUnit} amount: ")
+        if convertchoice==4:
+            answer = from_celsius(to_celsius(float(amount), fromUnit), toUnit)
+        else:
+            answer = convert(float(amount), fromUnit, toUnit, units)
+        print(f"That is {answer} {toUnit}.")
