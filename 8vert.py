@@ -130,7 +130,12 @@ CATEGORIES = {
     8: ("data", DATA, ""),
 }
 
-convertchoice=int(input("Enter 1 for distance/length/height, 2 for weight, 3 for speed, 4 for temp, 5 for volume, 6 for area, 7 for time or 8 for data: "))
+# int() raises an error instead of returning something when the text is not a number, so "try" it and fall back to 0, which is not a menu option and lands on "Unknown choice".
+# i rewrote to int because it's acually just integers: 1,2,3 ... , it just makes more sense
+try:
+    convertchoice=int(input("Enter 1 for distance/length/height, 2 for weight, 3 for speed, 4 for temp, 5 for volume, 6 for area, 7 for time or 8 for data: "))
+except ValueError:
+    convertchoice=0
 if convertchoice not in CATEGORIES:
     print("Unknown choice")
 else:
