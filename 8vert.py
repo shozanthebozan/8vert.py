@@ -1,4 +1,4 @@
-__VERSION__ = "V2.0.0"
+__VERSION__ = "V2.0.1"
 
 
 def convert(amount, from_unit, to_unit, table):
