@@ -1,4 +1,4 @@
-__VERSION__ = "V1.0.1"
+__VERSION__ = "V2.0.0"
 
 # You already worked this out yourself in the time section, with to_seconds() and from_seconds(). This is the same trick, written with a dict.
 #
