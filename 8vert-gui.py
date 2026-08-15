@@ -1,5 +1,5 @@
 import tkinter as tk
-
+root=tk.Tk()
 __VERSION__ = "V2.0.0"
 
 
@@ -151,18 +151,19 @@ else:
         else:
             answer = convert(float(amount), fromUnit, toUnit, units)
         print(f"That is {answer} {toUnit}.")
-class GUI(tk.Tk):
-    def __init__(self):
-        super().__init__()
-        self.geometry("500x350")
-        self.title("8vert")
-        Title=tk.Label(self, text="8vert", font=("Times New Roman"))
-        Title.place()
+
+
+
+class GUI():
+    root.geometry("500x350")
+    root.title("8vert")
+    Title=tk.Label(root, text="8vert")
+    Title.place(anchor="center",relx="0.5",rely="0.1")
 
 
 if __name__=="__main__":
-    app=GUI()
-    app.mainloop()
+    
+    root.mainloop()
 
 
 
