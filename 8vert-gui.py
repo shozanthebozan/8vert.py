@@ -157,13 +157,21 @@ else:
 class GUI():
     root.geometry("500x350")
     root.title("8vert")
-    Title=tk.Label(root, text="8vert")
+    Title=tk.Label(root, text="8vert", font=("Times New Roman", 30,"bold"))
     Title.place(anchor="center",relx="0.5",rely="0.1")
+    convertOptions = ["Distance/Length/Height", "Weight", "Speed", "Temp", "Volume", "Area", "Time", "Data"]
 
+    convert_placehold= tk.StringVar()
+
+    convert_placehold.set(convertOptions[0])
+
+    menu = tk.OptionMenu(root, convert_placehold, *convertOptions)   
+    menu.place(anchor="w", relx="0.1", rely="0.2")
 
 if __name__=="__main__":
     
     root.mainloop()
+
 
 
 
